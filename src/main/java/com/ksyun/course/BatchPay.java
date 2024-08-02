@@ -227,7 +227,7 @@ public class BatchPay {
         resetConnection.setRequestProperty("X-KSY-REQUEST-ID", UUID.randomUUID().toString());
 
         // 构建要传递的 JSON 数据
-        String jsonData = "{\"batchPayId\": " + batchPayId + "}";
+        String jsonData =  batchPayId;
         //String jsonData = accountInfo;
 
         // 将数据写入请求体
