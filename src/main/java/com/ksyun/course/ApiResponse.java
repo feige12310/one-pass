@@ -6,7 +6,7 @@ public class ApiResponse {
     private String requestId;
     private String data;
 
-    // getters and setters
+    // getters and settersf
 
     public String getMsg() {
         return msg;

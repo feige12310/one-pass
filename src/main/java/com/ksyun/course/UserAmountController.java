@@ -22,6 +22,14 @@ public class UserAmountController {
     @PostMapping("/onePass/queryUserAmount")
     public String queryUserAmount(@RequestBody List<Long> uids, @RequestHeader("X-KSY-REQUEST-ID") String requestId) {
         // 模拟查询用户账户金额
+        if(!(uids != null && uids.size() != 0))
+        {
+            String uuid = UUID.randomUUID().toString();
+            AmountApiResponse response = new AmountApiResponse(510, "user list is illegal", uuid, null);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String json = gson.toJson(response);
+            return json;
+        }
         List<UserAmount> userAmountList = new ArrayList<>();
         RedisURI redisUri = RedisURI.builder()
                 .withHost("localhost")  // 设置主机
